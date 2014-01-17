@@ -1,0 +1,6 @@
+# The zip file and doc files
+*.zip
+*.pdf
+
+# the emacs editor file
+*~
