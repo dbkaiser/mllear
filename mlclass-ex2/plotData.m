@@ -14,8 +14,8 @@ figure; hold on;
 
 yes=find(y==1);
 no=find(y==0);
-plot(X(yes,1),X(yes,2),'b+')
-plot(X(no,1),X(no,2),'ro')
+plot(X(yes,1),X(yes,2),'b+');
+plot(X(no,1),X(no,2),'ro');
 
 
 
