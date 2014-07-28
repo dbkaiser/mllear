@@ -49,9 +49,16 @@ X = [ones(m, 1) X];
 %                 initial_theta, options);
 %
 
+% m is the 5000 model size
+% n is the x dimentional number, which every model has 400 pixels and plus 1 for theta 0. so n = 401
+initial_theta = zeros(n + 1, 1);
 
+options = optimset('GradObj', 'on', 'MaxIter', 50);
 
-
+for c = 1: num_labels
+  [theta] = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);
+  all_theta(c,:) = theta;
+endfor
 
 
 
