@@ -63,15 +63,27 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
+X = [ones(m, 1) X];
+hidden= sigmoid(X * Theta1');
+% the number of nodes in hidden layer
+hidden = [ones(m ,1) hidden];
+h = sigmoid(hidden * Theta2');
+pretheta1 = ones(1,size(Theta1,2));
+pretheta2 = ones(1,size(Theta2,2));
+aftheta1 = ones(1, size(Theta1,1));
+aftheta2 = ones(1, size(Theta2,1));
+pretheta1(1) = 0;
+pretheta2(1) = 0;
 
+% size(aftheta1*(Theta1.^2 * pretheta1'))
 
+% organize the y into 1 0 matrix
+ry = (y==1);
+for c = 2 : num_labels
+	ry = [ry (y==c)];
+endfor
 
-
-
-
-
-
-
+J = J+ 1/m * ones(1, m) * ((-ry).*log(h)-(1-ry).*(log(1-h))) * ones(num_labels, 1) + lambda / (2*m) * (aftheta1 * (Theta1.^2 * pretheta1') + aftheta2 * (Theta2.^2 * pretheta2'));
 
 
 
