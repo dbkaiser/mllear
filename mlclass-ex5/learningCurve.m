@@ -53,7 +53,6 @@ error_val   = zeros(m, 1);
 
 % ---------------------- Sample Solution ----------------------
 
-lambda = 0;
 for i = 1:m
   [theta] = trainLinearReg(X(1:i,:), y(1:i), lambda);
 	
